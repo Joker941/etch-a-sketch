@@ -8,6 +8,7 @@ function getRandomOpacity() {
     return Math.round(Math.random() * 10) / 10;
 }
 function createDivs (nbrOflines) {
+
     let numberOflines = parseInt(nbrOflines) * parseInt(nbrOflines);
     
     let containerDiv = document.createElement("div");
@@ -36,18 +37,27 @@ document.querySelector(".container_div").style = "width: " + parseInt(16) * 50 +
 
 let buttonForSizeChange = document.querySelector("button");
 buttonForSizeChange.addEventListener("click", function (){
+
     let sizeChoosed = prompt("Choose the grid's size please (Max 100).");
     
-    let grid = document.querySelector(".container_div");
-    
-    while(grid.firstChild) {
-        grid.removeChild(grid.firstChild);
-    }
-    
-    //console.log(testSuppression.childNodes.length)
-    createDivs(parseInt(sizeChoosed));
+    sizeChoosedInt = parseInt(sizeChoosed);
+    console.log(typeof(sizeChoosed) + " / " + sizeChoosedInt);
 
-    document.querySelector(".container_div").style = "width: " + parseInt(sizeChoosed) * 50 + "px;";
+    if (parseInt(sizeChoosed) < 100 && parseInt(sizeChoosed) > 0) {
+
+        let grid = document.querySelector(".container_div");
+        
+        while(grid.firstChild) {
+            grid.removeChild(grid.firstChild);
+        }
+        
+        //console.log(testSuppression.childNodes.length)
+        createDivs(parseInt(sizeChoosed));
+
+        document.querySelector(".container_div").style = "width: " + parseInt(sizeChoosed) * 50 + "px;";
+    } else {
+        alert("You have to enter a number (Min 1, max 100). Thank you !");
+    }
 } )
 
 
