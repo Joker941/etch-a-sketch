@@ -18,7 +18,6 @@ function createDivs (nbrOflines) {
         let div = document.createElement("div");
         div.classList.add("square_div");
         div.classList.add("div_" + i);
-        div.textContent = i;
         document.querySelector(".container_div").appendChild(div);
 
         let divHover = document.querySelector(".div_" + i);
@@ -26,16 +25,27 @@ function createDivs (nbrOflines) {
             divHover.style = "background-color: rgb(" + getRandomColor() + ", " + getRandomColor() + ", " + getRandomColor() + "); opacity: " + getRandomOpacity() + ";";
         })
     }
+    
 }
 
 createDivs(16);
+document.querySelector(".container_div").style = "width: " + parseInt(16) * 50 + "px;";
 
+let buttonForSizeChange = document.querySelector("button");
+buttonForSizeChange.addEventListener("click", function (){
+    let sizeChoosed = prompt("Choose the grid's size please (Max 100).");
+    
+    let grid = document.querySelector(".container_div");
+    
+    while(grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+    }
+    
+    //console.log(testSuppression.childNodes.length)
+    createDivs(parseInt(sizeChoosed));
 
-// let testHover = document.querySelector(".div_6");
-// testHover.addEventListener("mouseover", function () {
-//     testHover.style = "background-color: red;";
-//     //setTimeout(() => testHover.style = "background-color: aliceblue; opacity: .4", 3500);
+    document.querySelector(".container_div").style = "width: " + parseInt(sizeChoosed) * 50 + "px;";
+} )
 
-// })
 
 
