@@ -22,7 +22,10 @@ function createDivs (nbrOflines) {
 
         let divHover = document.querySelector(".div_" + i);
         divHover.addEventListener("mouseover", function () {
-            divHover.style = "background-color: rgb(" + getRandomColor() + ", " + getRandomColor() + ", " + getRandomColor() + "); opacity: " + getRandomOpacity() + ";";
+            divHover.style = "background-color: rgb(" + getRandomColor() + ", " + getRandomColor() + ", " + getRandomColor() + "); opacity: " + getRandomOpacity() + "; border: 1px solid goldenrod;";
+            setTimeout(() => {
+                divHover.style = "background color: aliceblue; opacity: 1;";
+            }, 2500);
         })
     }
     
