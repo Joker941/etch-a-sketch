@@ -1,5 +1,5 @@
 html, body {
-    background-color: chocolate;
+    background-color: rgb(51, 38, 29);
     box-sizing: border-box;
     margin: 0;
 }
@@ -24,4 +24,5 @@ body {
     width: 48px;
     border: 1px solid black;
     background-color: aliceblue;
+    opacity: 1;
 }
